@@ -1,0 +1,16 @@
+---
+services:
+  kotlin:
+    container_name: kotlin_basic
+    build: ./kotlin_container/
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+  mysql:
+    container_name: kotlin_basic_mysql
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: hogehoge
+      MYSQL_DATABASE: kotlin_db
+      MYSQL_USER: kotlin_user
+      MYSQL_PASSWORD: kotlin_password
