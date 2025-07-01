@@ -6,6 +6,7 @@
 	},
 	"workspaceFolder": "/workspaces/Kotlin_Basic",
 	"forwardPorts": [8080],
+	"remoteUser": "root",
 	"mounts": [
 		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
 	],

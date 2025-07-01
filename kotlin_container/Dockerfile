@@ -1,4 +1,4 @@
-FROM openjdk:25-slim-bookworm
+FROM openjdk:21-slim-bookworm
 
 # Kotlinのバージョンを指定
 ENV KOTLIN_VERSION=2.2.0
@@ -6,7 +6,7 @@ ENV GRADLE_VERSION=8.14.2
 
 # 必要なツールをインストールし、KotlinコンパイラとGradleをセットアップ
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends wget unzip git vim \
+    && apt-get install -y --no-install-recommends wget unzip git vim openssh-client \
     # Kotlin
     && wget -q https://github.com/JetBrains/kotlin/releases/download/v$KOTLIN_VERSION/kotlin-compiler-$KOTLIN_VERSION.zip \
     && unzip kotlin-compiler-$KOTLIN_VERSION.zip -d /opt \
@@ -24,4 +24,8 @@ RUN apt-get update \
 WORKDIR /workspace
 
 # デフォルトのコマンド
+# appuserユーザーを作成し、作業ディレクトリの権限を変更
+RUN useradd -m appuser && chown -R appuser:appuser /workspace
+USER appuser
+
 CMD ["gradle", "--version"]
