@@ -1,0 +1,4 @@
+# Ignore Gradle cache
+./gradle-*
+
+# Other ignored files can be added here
