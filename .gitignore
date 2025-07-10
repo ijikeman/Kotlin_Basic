@@ -1,5 +1,5 @@
 # Ignore Gradle cache
-./gradle-*/*
-./kotlinc/*
+gradle-*/*
+kotlinc/*
 
 # Other ignored files can be added here
