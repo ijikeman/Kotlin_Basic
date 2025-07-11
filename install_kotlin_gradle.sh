@@ -1,7 +1,14 @@
 #!/bin/bash
+# Change To Path
+PROJECT_PATH=$HOME/project/Kotlin_Basic
+
+# Set Kotlin and Gradle versions
+KOTLIN_VERSION="2.2.0"
+GRADLE_VERSION="8.14.2"
 
 # Set environment variables
-echo 'export PATH="$PATH:$GRADLE_HOME/$GRADLE_DIST/bin"' | sudo tee /etc/profile.d/kotlin_gradle.sh
+echo "export PATH=$PATH:$PROJECT_PATH/gradle-$GRADLE_VERSION/bin:$PROJECT_PATH/kotlinc/bin/" | sudo tee /etc/profile.d/kotlin_gradle.sh
+source /etc/profile.d/kotlin_gradle.sh
 
 # Install unzip
 if ! command -v unzip &> /dev/null; then
@@ -28,9 +35,6 @@ fi
 #   echo "Snap already installed."
 # fi
 
-# Set Kotlin and Gradle versions
-KOTLIN_VERSION="2.2.0"
-GRADLE_VERSION="8.14.2"
 
 if ! command -v kotlinc/bin/kotlin &> /dev/null; then
   echo "Kotlin not found. Installing..."
