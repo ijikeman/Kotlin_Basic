@@ -6,9 +6,9 @@
 	},
 	"workspaceFolder": "/workspaces/Kotlin_Basic",
 	"forwardPorts": [8080],
-	"remoteUser": "root",
+	"remoteUser": "appuser",
 	"mounts": [
-		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+		"source=${localEnv:HOME}/.ssh,target=/home/appuser/.ssh,type=bind,consistency=cached"
 	],
 	"customizations": {
 		"vscode": {
