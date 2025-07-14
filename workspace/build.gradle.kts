@@ -5,3 +5,23 @@
  * Learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.14.2/samples
  * This project uses @Incubating APIs which are subject to change.
  */
+plugins {
+    kotlin("jvm") version "2.2.0" // Kotlin version
+    kotlin("plugin.spring") version "2.2.0" // Kotlin version
+    id("org.springframework.boot") version "3.5.3"
+    id("io.spring.dependency-management") version "1.1.7" // from Gradle Plugin Portal
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21 // Java Version
+}
+
+repositories {
+    mavenCentral()
+}
+
+// Spring Boot Webアプリに必要な依存関係を追加
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+}
