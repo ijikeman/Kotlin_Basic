@@ -1,10 +1,19 @@
-# Ignore Gradle project-specific cache directory
-.gradle
+# Gradleのキャッシュディレクトリ（プロジェクト固有）
+.gradle/
 
-# Ignore Gradle build output directory
-build
+# Gradle成果物
+build/
+
+# IDEA系の設定
 .idea
-.vscode
 *.iml
+
+# OS・その他一時ファイル
 *.log
 .DS_Store
+
+# VSCode
+.vscode
+
+# Gradle Wrapperのjarファイルは除外しない（明示的に含める）
+!gradle/wrapper/gradle-wrapper.jar
