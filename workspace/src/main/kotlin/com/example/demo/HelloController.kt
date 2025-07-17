@@ -11,19 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam // Parameter渡し
 
 import org.springframework.beans.factory.annotation.Value // ★追加
 
-import org.springframework.beans.factory.annotation.Autowired
+// import org.springframework.beans.factory.annotation.Autowired
 //@RestController
 @Controller
-class HelloController {
-
+class HelloController(
+    private val greetingService: GreetingService
+) {
     // ★追加
     // application.propertiesからapp.base-urlプロパティを読み込む
     // プロファイルがdevcontainerの場合、application-devcontainer.propertiesの値が優先される
     @Value("\${app.base-url:}") // デフォルト値を空文字に設定（プロパティがない場合）
     private lateinit var appBaseUrl: String
 
-    @Autowired
-    private lateinit var greetingService: GreetingService
+    // @Autowired
+    // private lateinit var greetingService: GreetingService
 
     @GetMapping("/")
     // fun hello(): String = "Hello, World!(Spring Boot)"

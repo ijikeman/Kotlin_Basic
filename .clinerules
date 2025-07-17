@@ -11,3 +11,9 @@
 ## その他
 - 専門用語は日本語表記を基本とし、必要な場合にのみカタカナや英語表記を付記してください。
 - 具体的なコード例や技術的な説明は、可能な限り詳細に記述してください。
+
+## Kotlinに関するルール
+- Kotlinのworkspaceは以下のパスにあります。
+  - `/Kotlin_Basic/workspace/`
+- Application.ktは以下のパスにあります。
+  - `/Kotlin_Basic/workspace/src/kotlin/com/example/demo/Application.kt`
