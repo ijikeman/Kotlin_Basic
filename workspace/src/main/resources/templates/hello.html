@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot & Thymeleaf</title>
+</head>
+<body>
+    <h1 th:text="${greetingMessage}">名前を入力してください:</h1>
+
+    <form th:action="${postUrl}" method="post">
+        <div class="form-group">
+            <label for="userName">名前:</label>
+            <input type="text" id="userName" name="userName" th:value="${inputName}" />
+        </div>
+        <button type="submit">送信</button>
+    </form>
+
+    <hr/>
+    <p>フォームから送信された値は、確認ページに表示されます。</p>
+</body>
+</html>

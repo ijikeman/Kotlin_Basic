@@ -1,5 +1,27 @@
-# Ignore Gradle cache
-gradle-*/*
-kotlinc/*
+# Gradleのキャッシュディレクトリ（プロジェクト固有）
+.gradle/
+
+# Gradle成果物
+build/
+
+# IDEA系の設定
+.idea
+*.iml
+
+# OS・その他一時ファイル
+*.log
+.DS_Store
+
+# VSCode
+.vscode
+
+# Kotlin成果物
+.kotlin/
+
+# Local
+gradle-*/
+kotlinc/
 *.jar
-# Other ignored files can be added here
+
+# Gradle Wrapperのjarファイルは除外しない（明示的に含める）
+!gradle/wrapper/gradle-wrapper.jar
