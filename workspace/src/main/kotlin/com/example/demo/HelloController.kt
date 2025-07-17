@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam // Parameter渡し
 
 import org.springframework.beans.factory.annotation.Value // ★追加
 
+import org.springframework.beans.factory.annotation.Autowired
 //@RestController
 @Controller
 class HelloController {
@@ -20,6 +21,9 @@ class HelloController {
     // プロファイルがdevcontainerの場合、application-devcontainer.propertiesの値が優先される
     @Value("\${app.base-url:}") // デフォルト値を空文字に設定（プロパティがない場合）
     private lateinit var appBaseUrl: String
+
+    @Autowired
+    private lateinit var greetingService: GreetingService
 
     @GetMapping("/")
     // fun hello(): String = "Hello, World!(Spring Boot)"
@@ -41,6 +45,8 @@ class HelloController {
     @PostMapping("/")
     // 受け取ったuserNameを使ってメッセージを作成し、Modelに追加
     fun helloPost(@RequestParam("userName") userName: String, model: Model): String {
+        val greeting = greetingService.greet(userName)
+        model.addAttribute("greeting", greeting)
         model.addAttribute("inputName", userName)  // 入力フォームに現在の値を保持
         return "confirm"
     }
