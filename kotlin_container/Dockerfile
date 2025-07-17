@@ -26,6 +26,10 @@ WORKDIR /workspace
 # デフォルトのコマンド
 # appuserユーザーを作成し、作業ディレクトリの権限を変更
 RUN useradd -m appuser && chown -R appuser:appuser /workspace
+
+# Install SQLite3
+RUN apt-get update && apt-get install -y sqlite3 libsqlite3-dev
+
 USER appuser
 
 CMD ["gradle", "--version"]
