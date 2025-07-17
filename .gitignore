@@ -15,6 +15,10 @@ build/
 # VSCode
 .vscode
 
+# Kotlin成果物
+.kotlin/
+
+# Local
 gradle-*/
 kotlinc/
 *.jar
