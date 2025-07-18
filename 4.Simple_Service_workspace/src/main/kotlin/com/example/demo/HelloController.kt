@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping // PostParameter追�
 import org.springframework.ui.Model // Parameter渡し
 import org.springframework.web.bind.annotation.RequestParam // Parameter渡し
 
+// import org.springframework.beans.factory.annotation.Autowired // ★AutoWiredでServiceを宣言するならこれ
 import org.slf4j.LoggerFactory // ロギングを追加
 import org.springframework.beans.factory.annotation.Value // ★追加
 
 //@RestController
 @Controller
 class HelloController(
-    private val greetingService: GreetingService
+    private val greetingService: GreetingService // Serviceをコンストラクタ変数で宣言
 ) {
     // ★ここが重要です！loggerインスタンスの定義
     private val logger = LoggerFactory.getLogger(HelloController::class.java)
@@ -24,7 +25,7 @@ class HelloController(
     @Value("\${app.base-url:}") // デフォルト値を空文字に設定（プロパティがない場合）
     private lateinit var appBaseUrl: String
 
-    // @Autowired
+    // @Autowired ★AutoWiredでServiceを宣言するならこれ
     // private lateinit var greetingService: GreetingService
 
     @GetMapping("/")
@@ -47,7 +48,7 @@ class HelloController(
     // 受け取ったuserNameを使ってメッセージを作成し、Modelに追加
     fun helloPost(@RequestParam("userName") userName: String, model: Model): String {
         logger.info("POST /: userNameとして '{}' を受け取りました。", userName) // 受け取ったパラメータをログ出力
-        val greeting = greetingService.greet(userName)
+        val greeting = greetingService.greet(userName) // greetingServiceを使う
         model.addAttribute("greeting", greeting)
         model.addAttribute("inputName", userName)  // 入力フォームに現在の値を保持
         logger.info("Modelに 'inputName' = '{}' を追加しました。", userName) // Modelに追加した値をログ出力

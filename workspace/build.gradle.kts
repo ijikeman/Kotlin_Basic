@@ -12,8 +12,19 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7" // from Gradle Plugin Portal
 }
 
+// Javaバージョンを動的に設定するロジック
+// 環境変数 'JAVA_VERSION_OVERRIDE' が設定されていればその値を使用し、
+// なければデフォルトの21を使用
+val javaVersionString = System.getenv("JAVA_VERSION_OVERRIDE") ?: "21"
+val javaVersion = when (javaVersionString) {
+    "17" -> JavaVersion.VERSION_17
+    "21" -> JavaVersion.VERSION_21
+    // 他のバージョンが必要ならここに追加
+    else -> JavaVersion.VERSION_21 // デフォルト
+}
 java {
-    sourceCompatibility = JavaVersion.VERSION_17 // Java Version
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion // targetCompatibilityも合わせるのが推奨
 }
 
 repositories {
