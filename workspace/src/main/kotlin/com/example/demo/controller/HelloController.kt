@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.controller
 
 import org.springframework.web.bind.annotation.GetMapping
 
@@ -10,6 +10,7 @@ import org.springframework.ui.Model // Parameter渡し
 import org.springframework.web.bind.annotation.RequestParam // Parameter渡し
 
 import org.springframework.beans.factory.annotation.Value // ★追加
+import com.example.demo.service.GreetingService
 
 // import org.springframework.beans.factory.annotation.Autowired
 //@RestController
