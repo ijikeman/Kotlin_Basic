@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.controller
 
 import org.springframework.web.bind.annotation.GetMapping
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam // Parameter渡し
 
 import org.slf4j.LoggerFactory // ロギングを追加
 import org.springframework.beans.factory.annotation.Value // ★追加
+import com.example.demo.service.GreetingService // ★追加
 
 //@RestController
 @Controller
