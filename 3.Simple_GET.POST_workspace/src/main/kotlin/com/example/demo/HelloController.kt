@@ -7,14 +7,19 @@ import org.springframework.stereotype.Controller // @RestController から @Cont
 import org.springframework.web.bind.annotation.PostMapping // PostParameter追加
 import org.springframework.ui.Model // Parameter渡し
 import org.springframework.web.bind.annotation.RequestParam // Parameter渡し
+import org.slf4j.LoggerFactory // ロギングを追加
 
 //@RestController
 @Controller
 class HelloController {
 
+    // ★ここが重要です！loggerインスタンスの定義
+    private val logger = LoggerFactory.getLogger(HelloController::class.java)
+
     @GetMapping("/")
     fun hello(model: Model): String {
         model.addAttribute("inputName", "")
+        logger.info("GET /: hello.htmlを返します。") // ログ出力
         return "hello" // src/main/resources/templates/hello.htmlを返す
     }
 
@@ -22,7 +27,9 @@ class HelloController {
     @PostMapping("/")
     // 受け取ったuserNameを使ってメッセージを作成し、Modelに追加
     fun helloPost(@RequestParam("userName") userName: String, model: Model): String {
-        model.addAttribute("inputName", userName)  // 入力フォームに現在の値を保持
+        logger.info("POST /: userNameとして '{}' を受け取りました。", userName) // 受け取ったパラメータをログ出力
+        model.addAttribute("inputName", userName)
+        logger.info("Modelに 'inputName' = '{}' を追加しました。", userName) // Modelに追加した値をログ出力
         return "confirm"
     }
 }
