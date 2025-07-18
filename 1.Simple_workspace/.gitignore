@@ -17,9 +17,3 @@ build/
 
 # Gradle Wrapperのjarファイルは除外しない（明示的に含める）
 !gradle/wrapper/gradle-wrapper.jar
-
-# Ignore Gradle project-specific cache directory
-.gradle
-
-# Ignore Gradle build output directory
-build
