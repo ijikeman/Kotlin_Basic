@@ -1,12 +1,13 @@
 package com.example.demo.service
 
-import com.example.demo.entity.User
-import com.example.demo.repository.UserRepository
 import org.springframework.stereotype.Service
 
+import com.example.demo.entity.User // Userエンティティをインポート
+import com.example.demo.repository.UserRepository // ユーザー情報を操作するリポジトリをインポート
+
 @Service
-class UserService(private val userRepository: UserRepository) {
-    fun findByUsername(username: String): User? {
-        return userRepository.findByUsername(username)
+class UserService(private val userRepository: UserRepository) { // ユーザー情報を操作するサービスクラス
+    fun findByUsername(username: String): User? { // ユーザー名でユーザーを検索するメソッド
+        return userRepository.findByUsername(username) // リポジトリを使用してユーザーを検索
     }
 }
