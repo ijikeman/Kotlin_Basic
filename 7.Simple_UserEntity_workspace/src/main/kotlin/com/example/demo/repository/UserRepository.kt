@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository // Spring Data JPA�
 
 interface UserRepository : JpaRepository<User, Long> { // Userエンティティを操作するためのリポジトリインターフェース
     // ユーザー名でユーザーを検索するメソッド
-    fun findByUsername(name: String): User?
+    fun findByName(name: String): User?
 }

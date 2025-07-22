@@ -7,7 +7,7 @@ import com.example.demo.repository.UserRepository // ユーザー情報を操作
 
 @Service
 class UserService(private val userRepository: UserRepository) { // ユーザー情報を操作するサービスクラス
-    fun findByUsername(name: String): User? { // ユーザー名でユーザーを検索するメソッド
-        return userRepository.findByUsername(username) // リポジトリを使用してユーザーを検索
+    fun findByName(name: String): User? { // ユーザー名でユーザーを検索するメソッド
+        return userRepository.findByName(name) // リポジトリを使用してユーザーを検索
     }
 }
