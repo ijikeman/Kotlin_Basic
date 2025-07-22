@@ -20,7 +20,9 @@ class LoginController(
 
     @PostMapping("/login")
     fun authenticateUser(name: String, password: String): String {
+        println("authenticateUser called with name: $name, password: $password")
         val user = userRepository.findByName(name) // ユーザー名でユーザーを検索
+        println("findByName result: $user")
         return if (user != null && user.password == password) { // ユーザーが存在し、パスワードが一致する場合
             return "confirm" // 認証成功時のリダイレクト先
         } else {
