@@ -9,5 +9,9 @@ plugins {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.xerial:sqlite-jdbc:3.47.2.0") // SQLite JDBC Driver
+    implementation("org.hibernate.orm:hibernate-community-dialects:6.6.18.Final") // Hibernateを利用する
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa") // Entityでjakarta.*を使うため
+    implementation("org.jetbrains.kotlin:kotlin-reflect") // Kotlin Reflection
+    implementation("org.springframework.boot:spring-boot-starter-validation") // バリデーションを利用するため
 }
