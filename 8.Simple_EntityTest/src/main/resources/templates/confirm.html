@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+</head>
+<body>
+    <h1>Login Successful</h1>
+    <p>Welcome to the application!</p>
+    <p th:text="'Hello, ' + ${name} + '!'" th:if="${name} != null"></p>
+</body>
+</html>
