@@ -3,7 +3,7 @@ package com.example.demo.controller
 import org.springframework.stereotype.Controller
 import org.springframework.validation.BindingResult
 import org.springframework.ui.Model
-import org.springframework.validation.annotation.Validated
+import org.springframework.validation.annotation.Validated // バリデーションを有効にするためのアノテーションをインポート
 import org.springframework.web.bind.annotation.* // 必要なアノテーションをインポート
 
 import com.example.demo.entity.User // ユーザーエンティティをインポート
