@@ -9,8 +9,8 @@ class UserTest {
         val user = User(name = "testuser", password = "testpass")
         assertEquals("testuser", user.name)
         assertEquals("testpass", user.password)
-        // idはデフォルト値0
-        assertEquals(0, user.id)
+        // idはデフォルト値0L
+        assertEquals(0L, user.id)
     }
 
     @Test
@@ -18,9 +18,9 @@ class UserTest {
         val user = User()
         user.name = "another"
         user.password = "pass2"
-        user.id = 123L
         assertEquals("another", user.name)
         assertEquals("pass2", user.password)
-        assertEquals(123L, user.id)
+        // idはvalで不変のため、デフォルト値の0Lのまま
+        assertEquals(0L, user.id)
     }
 }
