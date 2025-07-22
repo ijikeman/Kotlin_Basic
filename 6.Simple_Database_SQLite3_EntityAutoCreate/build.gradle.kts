@@ -26,7 +26,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web") // Springboot Web Framework
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf") // Template Engine
     implementation("org.xerial:sqlite-jdbc:3.47.2.0") // SQLite JDBC Driver
-    implementation("org.springframework.boot:spring-boot-starter-jdbc") // Spring JDBC Template/JdbcClientに必要
     implementation("org.hibernate.orm:hibernate-community-dialects:6.6.18.Final") // Hibernateを利用する
     implementation("org.springframework.boot:spring-boot-starter-data-jpa") // Entityでjakarta.*を使うため
 }
