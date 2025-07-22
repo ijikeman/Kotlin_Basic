@@ -12,8 +12,9 @@ data class User(
     
     @field:Pattern(
         regexp = "^[a-z0-9]+$",
-        message = "ユーザ名は英数字のみ利用できますよん"
-    ) // ここがポイント
+        message = "ユーザ名は英数字のみ利用できます。"
+    )
     var name: String = "", // 初期値を定義しないとエラーになる
+
     var password: String = "" // 初期値を定義しないとエラーになる
 )
