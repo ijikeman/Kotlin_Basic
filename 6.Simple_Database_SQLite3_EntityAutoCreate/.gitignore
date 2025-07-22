@@ -15,5 +15,12 @@ build/
 # VSCode
 .vscode
 
+# exclude
+bin/
+
+# SQLite3データベースファイル
+*.db
+*.sqlite3
+
 # Gradle Wrapperのjarファイルは除外しない（明示的に含める）
 !gradle/wrapper/gradle-wrapper.jar
