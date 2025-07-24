@@ -1,0 +1,4 @@
+rootProject.name = '11.MultiModuleProject'
+
+include 'library'
+include 'application'
