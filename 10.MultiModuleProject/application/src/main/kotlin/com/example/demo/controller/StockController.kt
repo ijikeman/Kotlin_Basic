@@ -1,6 +1,6 @@
 package com.example.demo.controller
 
-import com.example.demo.library.stock.StockPrice
+import com.example.demo.library.stock.StockPrice // implementationで使用されているクラスをインポート
 import com.example.demo.library.stock.StockService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
