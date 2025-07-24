@@ -10,10 +10,6 @@ java {
     sourceCompatibility = JavaVersion.VERSION_21
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     // libraryモジュールはSpring Bootスターターの依存関係を持たない
     // 必要に応じてKotlinの標準ライブラリなどを追加
