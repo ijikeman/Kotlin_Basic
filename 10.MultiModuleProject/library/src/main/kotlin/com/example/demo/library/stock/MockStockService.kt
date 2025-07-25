@@ -2,8 +2,8 @@ package com.example.demo.library.stock
 
 import java.time.LocalDate
 
-class MockStockService : StockService {
-    override fun getHistoricalPrices(symbol: String, startDate: LocalDate, endDate: LocalDate): List<StockPrice> {
+class MockStockService : StockService { // StockServiceを継承して実際の処理はこちらに書いてMockとして利用する
+    override fun getHistoricalPrices(symbol: String, startDate: LocalDate, endDate: LocalDate): List<StockPrice> { // StockServiceの処理を上書きする
         // 仮のデータを返す (実際はAPIから取得する)
         if (symbol == "TEST") {
             return listOf(
@@ -15,7 +15,7 @@ class MockStockService : StockService {
         return emptyList()
     }
 
-    override fun getCurrentPrice(symbol: String): StockPrice? {
+    override fun getCurrentPrice(symbol: String): StockPrice? { // StockServiceの処理を上書きする
         // 仮のデータを返す
         return if (symbol == "TEST") {
             StockPrice("TEST", LocalDate.now(), 109.0, 112.0, 108.0, 111.0, 200000)

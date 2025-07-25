@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class AppConfig {
-    @Bean
-    fun stockService(): StockService {
-        return MockStockService()
+    @Bean // SpringのIoCコンテナに「このメソッドが返すオブジェクトを、DIの対象として管理してね」と指示するためのアノテーション
+    fun stockService(): StockService { // もしStockService 型のインスタンスを必要としたら
+        return MockStockService() // stockService() 関数が返す MockStockService のインスタンスを渡してあげてください。
     }
 }
