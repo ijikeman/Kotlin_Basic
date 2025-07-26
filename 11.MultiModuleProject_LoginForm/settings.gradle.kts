@@ -1,8 +1,9 @@
-rootProject.name = "MultiModuleProject_LoginForm"
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
 
-include(
-    "modules:core",
-    "modules:auth",
-    "modules:stock",
-    "modules:web"
-)
+rootProject.name = "11.MultiModuleProject_LoginForm"
+
+include("modules:core", "modules:auth", "modules:stock", "modules:web")
