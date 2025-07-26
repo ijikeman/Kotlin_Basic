@@ -1,19 +1,19 @@
 plugins {
-    kotlin("jvm") version "2.2.0"
-    kotlin("plugin.spring") version "2.2.0"
-    id("io.spring.dependency-management") version "1.1.7"
-    id("org.springframework.boot") version "3.5.3"
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
+    id("org.springframework.boot")
 }
 
 dependencies {
+    implementation(project(":modules:core"))
+    implementation(project(":modules:auth"))
+    implementation(project(":modules:stock"))
+
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    runtimeOnly("com.h2database:h2")
+    runtimeOnly("com.mysql:mysql-connector-j")
 }
 
-// Spring Bootアプリケーションの起動クラスを指定します
-tasks.getByName<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
-    mainClass.set("com.example.ApplicationKt") // あなたのSpring Bootアプリケーションのメインクラス名に合わせてください
+springBoot {
+    mainClass.set("com.example.stockanalysis.web.WebApplicationKt")
 }
