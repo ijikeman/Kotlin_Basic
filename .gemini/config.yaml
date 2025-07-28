@@ -1,0 +1,9 @@
+have_fun: false # 初回のプルリクエストの概要に詩的な面白い要素を追加するか
+code_review: # コードレビュー設定
+  disable: false # Geminiによるプルリクエストへのコメント応答の設定(true: 有効)
+  comment_severity_threshold: MEDIUM # レビューコメントの最小重要度。(UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL)
+  max_review_comments: -1 # 最大レビューコメント数。（-1 は制限なしにレビューを返す）
+  pull_request_opened: # プルリクエストが開かれた際の設定。
+    help: false # プルリクエスト作成時にコマンド利用方法のヘルプメッセージを表示するか。
+    summary: true # プルリクエスト作成時に概要を投稿するか。
+    code_review: true # プルリクエスト作成時にコードレビューを投稿するか。
