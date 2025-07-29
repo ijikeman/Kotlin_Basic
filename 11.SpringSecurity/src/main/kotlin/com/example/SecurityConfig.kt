@@ -25,7 +25,7 @@ public class SampleSecurityConfig {
     // 認証なしでアクセスを許可する
     http.authorizeHttpRequests { authorize ->
       authorize
-        .requestMatchers("/").permitAll()
+        .requestMatchers("/", "/login").permitAll() // ログインページを許可
         .requestMatchers("/js/**").permitAll()
         .requestMatchers("/css/**").permitAll()
         .requestMatchers("/img/**").permitAll()
@@ -34,7 +34,9 @@ public class SampleSecurityConfig {
 
     // formログイン時に/secretへジャンプ
     http.formLogin { form -> // フォームログイン関数
-        form.defaultSuccessUrl("/secret") // ログイン成功時の転送先ページ
+        form
+          .defaultSuccessUrl("/secret") // ログイン成功時の転送先ページ
+          .loginPage("/login") // ログインページのURLを設定します
     }
     return http.build(); // SecurityFilterChainの作成
   }
