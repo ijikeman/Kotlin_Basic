@@ -9,6 +9,12 @@ import org.springframework.security.core.Authentication // Spring-Securityを使
 @Controller
 class AuthController {
 
+    @GetMapping("/") // トップページ
+    fun index(model: Model): String {
+        model.addAttribute("message", "Hello World!")
+        return "index"
+    }
+
     @GetMapping("/login")
     fun login(
         @RequestParam(required = false) error: String?,
@@ -24,9 +30,8 @@ class AuthController {
         return "login"
     }
 
-    @GetMapping("/security")
+    @GetMapping("/secret") // 認証後のジャンプページ
     fun home(authentication: Authentication, model: Model): String {
-        model.addAttribute("username", authentication.name)
-        return "home"
+        return "secret"
     }
 }

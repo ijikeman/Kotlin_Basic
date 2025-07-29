@@ -36,7 +36,7 @@ public class SampleSecurityConfig {
     http.formLogin { form -> // フォームログイン関数
         form
           .defaultSuccessUrl("/secret") // ログイン成功時の転送先ページ
-          .loginPage("/login") // ログインページのURLを設定します
+          //.loginPage("/login") // ログインページのURLを設定します
     }
     return http.build(); // SecurityFilterChainの作成
   }
