@@ -25,7 +25,7 @@ public class SampleSecurityConfig {
     // 認証なしでアクセスを許可する
     http.authorizeHttpRequests { authorize ->
       authorize
-        .requestMatchers("/", "/login").permitAll() // ログインページを許可
+        .requestMatchers("/").permitAll() // ログインページを許可
         .requestMatchers("/js/**").permitAll()
         .requestMatchers("/css/**").permitAll()
         .requestMatchers("/img/**").permitAll()
