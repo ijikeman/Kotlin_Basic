@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.ui.Model
 import org.springframework.security.core.Authentication // Spring-Securityを使う
-import org.springframework.security.crypto.password.PasswordEncoder
-import com.example.UserRepository
+import org.springframework.security.crypto.password.PasswordEncoder // 平文対応のため不要なインポートは削除またはコメントアウト
+import com.example.UserRepository // UserRepositoryを参照させる必要がある
 
 @Controller
 class AuthController (
