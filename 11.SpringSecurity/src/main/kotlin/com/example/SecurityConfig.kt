@@ -17,13 +17,13 @@ import org.springframework.security.crypto.password.PasswordEncoder
 class SecurityConfig(private val userRepository: UserRepository) { // ユーザリポジトリを利用できるようにする
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
-    // CSRF無効化. CSRFトークンを非表示フィールドで持たないと送信できない
+      // CSRF無効化 (Kotlin DSLの書き方に修正)
       http.csrf().disable(); 
 
       // 認証なしでアクセスを許可する
       http.authorizeHttpRequests { authorize ->
         authorize // 以下認証なしでアクセス可能
-          .requestMatchers("/").permitAll() // ログインページを許可
+          .requestMatchers("/", "/login").permitAll() // topページは認証なし
           .requestMatchers("/h2-console/**").permitAll() //h2-consoleは認証なし
           .requestMatchers("/js/**").permitAll()
           .requestMatchers("/css/**").permitAll()
@@ -31,11 +31,18 @@ class SecurityConfig(private val userRepository: UserRepository) { // ユーザ�
           .anyRequest().authenticated() // それ以外のリクエストは認証を要求する
       }
 
+      // H2 Consoleがiframe内で表示されるように設定
+      http.headers { headers ->
+        headers.frameOptions { frameOptions ->
+            frameOptions.sameOrigin()
+        }
+      }
+
       // formログイン時の設定 (permitAll() の追加)
       http.formLogin { form ->
         form
-          .defaultSuccessUrl("/secret") // ログイン成功時の転送先ページ
-          // .loginPage("/login") // カスタムログインページを使わないのでコメントアウトのまま
+          .defaultSuccessUrl("/secret", true) // ログイン成功時の転送先ページ trueが必要
+          .loginPage("/login") // カスタムログインページを使わないのでコメントアウトのまま
           .permitAll() // ★ formLoginに関連するパス（例: /login POST）へのアクセスを許可
       }
       return http.build()

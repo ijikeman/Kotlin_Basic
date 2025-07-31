@@ -5,10 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.ui.Model
 import org.springframework.security.core.Authentication // Spring-Securityを使う
+import org.springframework.security.crypto.password.PasswordEncoder
+import com.example.UserRepository
 
 @Controller
-class AuthController {
-
+class AuthController (
+    private val userRepository: UserRepository,
+    private val passwordEncoder: PasswordEncoder
+) {
     @GetMapping("/") // トップページ
     fun index(model: Model): String {
         model.addAttribute("message", "Hello World!")
@@ -16,18 +20,8 @@ class AuthController {
     }
 
     @GetMapping("/login")
-    fun login(
-        @RequestParam(required = false) error: String?,
-        @RequestParam(required = false) logout: String?,
-        model: Model
-    ): String {
-        if (error != null) {
-            model.addAttribute("error", "ログインに失敗しました")
-        }
-        if (logout != null) {
-            model.addAttribute("message", "ログアウトしました")
-        }
-        return "login"
+    fun login(): String {
+        return "login" // src/main/resources/templates/login.html をレンダリング
     }
 
     @GetMapping("/secret") // 認証後のジャンプページ
