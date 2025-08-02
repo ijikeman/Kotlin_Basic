@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ユーザー登録</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        div { margin-bottom: 10px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="password"] { width: calc(100% - 22px); padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        input[type="submit"] { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+        .error { color: red; font-size: 0.9em; margin-top: 5px; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        p { text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ユーザー登録</h2>
+        <div th:if="${#fields.hasErrors('userEntity.*')}" style="color: red;">
+            <ul>
+                <li th:each="err : ${#fields.errors('userEntity.*')}" th:text="${err}"></li>
+            </ul>
+        </div>
+        <form th:action="@{/register}" th:object="${userEntity}" method="post">
+            <div>
+                <label for="name">ユーザー名:</label>
+                <input type="text" id="name" name="name" th:field="*{name}" required/>
+                </div>
+            <div>
+                <label for="password">パスワード:</label>
+                <input type="password" id="password" name="password" th:field="*{password}" required/>
+                </div>
+            <div>
+                <input type="submit" value="登録"/>
+            </div>
+        </form>
+        <p>
+            すでにアカウントをお持ちですか？ <a th:href="@{/login}">ログインはこちら</a>
+        </p>
+    </div>
+</body>
+</html>

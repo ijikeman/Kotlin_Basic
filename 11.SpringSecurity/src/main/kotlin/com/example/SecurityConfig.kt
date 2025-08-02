@@ -23,7 +23,7 @@ class SecurityConfig(private val userRepository: UserRepository) { // ユーザ�
       // 認証なしでアクセスを許可する
       http.authorizeHttpRequests { authorize ->
         authorize // 以下認証なしでアクセス可能
-          .requestMatchers("/", "/login").permitAll() // topページは認証なし
+          .requestMatchers("/", "/login", "/register").permitAll() // top, ログイン, アカウント登録ページは認証なし
           .requestMatchers("/h2-console/**").permitAll() //h2-consoleは認証なし
           .requestMatchers("/js/**").permitAll()
           .requestMatchers("/css/**").permitAll()

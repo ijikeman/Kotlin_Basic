@@ -19,5 +19,6 @@ data class UserEntity( // ここにプロパティを定義します
     var password: String, // パスワード（平文の場合）。変更の可能性があるので var
 
     @Column(nullable = false) // DBカラム設定: null不可
-    var roles: String // ロール。変更の可能性があるので var
+    //var roles: String // ロール。変更の可能性があるので var
+    var roles: String = "USER" // USERロールを強制定義
 )
