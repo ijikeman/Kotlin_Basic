@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ログイン</title>
+</head>
+<body>
+    <!-- usersをeachで回して表示 -->
+    <ul class="users" th:each="user : ${users}">
+        <li th:text="${user.name}"></li>
+    </ul>
+</body>
+</html>
