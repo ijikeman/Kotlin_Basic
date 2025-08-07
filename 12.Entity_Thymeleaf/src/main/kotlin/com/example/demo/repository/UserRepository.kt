@@ -5,5 +5,6 @@ import org.springframework.stereotype.Repository
 import com.example.demo.entity.User // Userエンティティをインポート
 
 @Repository
-interface UserRepository : JpaRepository<User, Long> { // JpaRepositoryは定義しなくてもfindAll()は定義されている
+// findAll(), save(), findById(), delete()など）は、登録しなくてもJpaRepositoryがすでに自動で提供されています。
+interface UserRepository : JpaRepository<User, Long> {
 }
