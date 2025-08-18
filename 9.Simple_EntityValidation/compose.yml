@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    image: sqlite3-app
+    container_name: sqlite3-app
+    ports:
+      - "8080:8080"
+    environment:
+      - TZ=Asia/Tokyo
