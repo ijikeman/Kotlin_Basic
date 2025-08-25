@@ -22,7 +22,6 @@ repositories {
 
 // Spring Boot Webアプリに必要な依存関係を追加
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web") // Springboot Web Framework
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf") // Template Engine
     implementation("org.xerial:sqlite-jdbc") // SQLite JDBC Driver
