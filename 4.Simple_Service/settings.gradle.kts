@@ -6,4 +6,4 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 
-rootProject.name = "workspace"
+rootProject.name = "4.Simple_Service"
