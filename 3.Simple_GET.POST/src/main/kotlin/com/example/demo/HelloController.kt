@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Value // ★追加
 @Controller
 class HelloController {
 
-    
     // ★ここが重要です！loggerインスタンスの定義
     private val logger = LoggerFactory.getLogger(HelloController::class.java)
 
