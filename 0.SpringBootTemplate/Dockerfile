@@ -1,26 +1,22 @@
 # Stage 1: Build the application
-FROM eclipse-temurin:21-jdk-jammy AS builder
+FROM eclipse-temurin:17.0.16_8-jdk-jammy AS builder
 
 WORKDIR /workspace
 
-# Copy the Gradle wrapper
-COPY gradlew .
-COPY gradle ./gradle
-
-# Copy the build configuration files
-COPY settings.gradle .
+# Copy the entire project
 COPY build.gradle.kts .
-
-# Copy the source code
-COPY src ./src
+COPY settings.gradle.kts .
+COPY gradlew .
+COPY gradlew.bat .
+COPY gradle ./gradle
 
 # Build the application
 RUN chmod +x ./gradlew
+# mainのクラスでBuildする
 RUN ./gradlew bootJar
 
 # Stage 2: Create the final production image
-FROM eclipse-temurin:21-jre-jammy
-
+FROM eclipse-temurin:17.0.16_8-jdk-jammy
 WORKDIR /app
 
 # Create a non-root user
