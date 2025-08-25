@@ -10,7 +10,7 @@ services:
       - db:/app/data
     environment:
       - TZ=Asia/Tokyo
-      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_PROFILES_ACTIVE=prod # application-prod.propertiesを使う
 volumes:
   db:
     driver: local
