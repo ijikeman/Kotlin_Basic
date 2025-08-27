@@ -6,11 +6,11 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 plugins {
-    kotlin("jvm") version "2.2.0" // Kotlin version
-    kotlin("plugin.spring") version "2.2.0" // Kotlin version
+    kotlin("jvm") version "2.0.10" // Kotlin version
+    kotlin("plugin.spring") version "2.0.10" // Kotlin version
     id("org.springframework.boot") version "3.5.3"
     id("io.spring.dependency-management") version "1.1.7" // from Gradle Plugin Portal
-    kotlin("plugin.jpa") version "2.2.0" // default constructerを回避する為に定義
+    kotlin("plugin.jpa") version "2.0.10" // default constructerを回避する為に定義
 }
 
 repositories {

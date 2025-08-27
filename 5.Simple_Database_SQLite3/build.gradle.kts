@@ -6,14 +6,14 @@
  * This project uses @Incubating APIs which are subject to change.
  */
 plugins {
-    kotlin("jvm") version "2.2.0" // Kotlin version
-    // kotlin("plugin.spring") version "2.2.0" // Kotlin version
+    kotlin("jvm") version "2.0.10" // Kotlin version
+    // kotlin("plugin.spring") version "2.0.10" // Kotlin version
     id("org.springframework.boot") version "3.5.3"
     id("io.spring.dependency-management") version "1.1.7" // from Gradle Plugin Portal
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21 // Java Version
+    sourceCompatibility = JavaVersion.VERSION_17 // Java Version
 }
 
 repositories {
@@ -22,9 +22,8 @@ repositories {
 
 // Spring Boot Webアプリに必要な依存関係を追加
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web") // Springboot Web Framework
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf") // Template Engine
-    implementation("org.xerial:sqlite-jdbc:3.50.2.0") // SQLite JDBC Driver
+    implementation("org.xerial:sqlite-jdbc") // SQLite JDBC Driver
     implementation("org.springframework.boot:spring-boot-starter-jdbc") // Spring JDBC Template/JdbcClientに必要
 }

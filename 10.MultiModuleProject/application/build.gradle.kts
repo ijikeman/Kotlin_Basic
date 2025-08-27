@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.2.0"
-    kotlin("plugin.spring") version "2.2.0"
+    kotlin("jvm") version "2.0.10"
+    kotlin("plugin.spring") version "2.0.10"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.springframework.boot") version "3.5.3"
 }
@@ -9,7 +9,7 @@ group = "com.example.demo"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 dependencies {

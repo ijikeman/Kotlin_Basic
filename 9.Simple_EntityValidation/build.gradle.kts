@@ -12,21 +12,9 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7" // from Gradle Plugin Portal
 }
 
-// Javaバージョンを動的に設定するロジック
-// 環境変数 'JAVA_VERSION_OVERRIDE' が設定されていればその値を使用し、
-// なければデフォルトの21を使用
-val javaVersionString = System.getenv("JAVA_VERSION_OVERRIDE") ?: "21"
-val javaVersion = when (javaVersionString) {
-    "17" -> JavaVersion.VERSION_17
-    "21" -> JavaVersion.VERSION_21
-    // 他のバージョンが必要ならここに追加
-    else -> JavaVersion.VERSION_21 // デフォルト
-}
 java {
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion // targetCompatibilityも合わせるのが推奨
+    sourceCompatibility = JavaVersion.VERSION_17 // Java Version
 }
-
 
 repositories {
     mavenCentral()
@@ -34,14 +22,13 @@ repositories {
 
 // Spring Boot Webアプリに必要な依存関係を追加
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web") // Springboot Web Framework
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf") // Template Engine
-    implementation("org.xerial:sqlite-jdbc:3.47.2.0") // SQLite JDBC Driver
-    implementation("org.hibernate.orm:hibernate-community-dialects:6.6.18.Final") // Hibernateを利用する
+    implementation("org.xerial:sqlite-jdbc") // SQLite JDBC Driver
+    implementation("org.hibernate.orm:hibernate-community-dialects") // Hibernateを利用する
     implementation("org.springframework.boot:spring-boot-starter-data-jpa") // Entityでjakarta.*を使うため
     implementation("org.jetbrains.kotlin:kotlin-reflect") // Kotlin Reflection
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+    testImplementation("org.mockito.kotlin:mockito-kotlin")
     implementation("org.springframework.boot:spring-boot-starter-validation") // バリデーションを利用するため
 }

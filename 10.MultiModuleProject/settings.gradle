@@ -1,4 +1,4 @@
-rootProject.name = '11.MultiModuleProject'
+rootProject.name = '10.MultiModuleProject'
 
 include(":library") // サブモジュールを読み込む
 include(":application") // サブモジュールを読み込む
