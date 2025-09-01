@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class HelloController {
+class JapaneseHelloController {
 
     @CrossOrigin(origins = ["http://localhost:5173"])
-    @GetMapping("/hello/us")
-    fun hello(): String {
-        return "Hello World"
+    @GetMapping("/hello/jp")
+    fun helloJapanese(): String {
+        return "こんにちは"
     }
 }
