@@ -1,7 +1,5 @@
-// vueからcreateAppをインポート
 import { createApp } from 'vue'
-// App.vueからAppをインポート
 import App from './App.vue'
+import router from './router'
 
-// Appをマウントしてアプリケーションを作成
-createApp(App).mount('#app')
+createApp(App).use(router).mount('#app')
