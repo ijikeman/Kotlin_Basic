@@ -14,6 +14,7 @@ export default defineConfig({
     }
   },
   server: {
+    // /apiににアクセスがあればlocalhost:8080にアクセスする(npm runした場合に使用)
     proxy: {
       '/api': {
         target: 'http://localhost:8080',
